@@ -1,0 +1,24 @@
+<div class ="col-md-7">
+	<div class="row">
+		<div class="col-xs-12">
+			<img src="" alt="" class="img-responsive">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<h1>{{categoryName}} ({{categoryItems.count()}} items)</h1>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-xs-12">
+				{% for item in categoryItems %}
+					<a href="{{url_for('detailItem', catalog_id = item.category_id, item_id = item.id )}}" class="list-group-item clearfix ">
+						<div class="pull-left">
+							<h4 class="list-group-item-heading">{{item.name}}  {%if categoryName == 'Latest Items' %}({{item.category.name}}){% endif %}</h4>
+						</div>
+					</a>
+				{% endfor %}
+		</div>
+	</div>
+</div>
